@@ -1,0 +1,50 @@
+<h3>List of Breeds</h3>
+<div>
+  <h5>Number of Images: {{count}}</h5>
+</div>
+<div>
+  <div *ngIf="showImg"><img [src]="showImg" alt="Breed Image"></div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">breed</th>
+        <th scope="col">Image</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let breed of img; index as i">
+        <th>{{i+1}}</th>
+        <td>
+          <h4>{{breed | findBreed:'breedName'}}</h4>
+        </td>
+        <td>{{breed | findBreed:'imageName'}}</td>
+        <td>
+          <button type="button" (click)="viewImg(breed)" >view</button>
+        </td>
+      </tr>
+
+
+
+
+
+      <!-- <tr *ngFor="let breed of breedData; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>
+          <img
+            [src]="img"
+            class="me-2"
+            style="width: 20px"
+          />
+        {{ country.name }}
+        </td>
+        <td>{{ country.area | number }}</td>
+        <td>{{ country.population | number }}</td>
+      </tr> -->
+    </tbody>
+  </table>
+</div>
+
+
